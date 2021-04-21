@@ -30,9 +30,12 @@ const GRAVATARS_QUERY = gql`
   query gravatars($where: Gravatar_filter!, $orderBy: Gravatar_orderBy!) {
     gravatars(first: 100, where: $where, orderBy: $orderBy, orderDirection: asc) {
       id
-      owner
-      displayName
-      imageUrl
+      artist
+      artistName
+      pyeObject
+      hashed
+      frxAddress
+      frxCap
     }
   }
 `
@@ -43,7 +46,7 @@ class App extends Component {
     this.state = {
       withImage: false,
       withName: false,
-      orderBy: 'displayName',
+      orderBy: 'artistName',
       showHelpDialog: false,
     }
   }
@@ -82,8 +85,8 @@ class App extends Component {
                   query={GRAVATARS_QUERY}
                   variables={{
                     where: {
-                      ...(withImage ? { imageUrl_starts_with: 'http' } : {}),
-                      ...(withName ? { displayName_not: '' } : {}),
+                      ...(withImage ? { pyeObject_starts_with: 'http' } : {}),
+                      ...(withName ? { artistName_not: '' } : {}),
                     },
                     orderBy: orderBy,
                   }}
@@ -94,7 +97,7 @@ class App extends Component {
                     ) : error ? (
                       <Error error={error} />
                     ) : (
-                      <Gravatars gravatars={data.gravatars} />
+                      <Gravatars gravatars={data.pyes} />
                     )
                   }}
                 </Query>

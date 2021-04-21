@@ -53,9 +53,9 @@ const Filter = ({
             onChange={event => onOrderBy && onOrderBy(event.target.value)}
           >
             <MenuItem value="id">ID</MenuItem>
-            <MenuItem value="imageUrl">Image</MenuItem>
-            <MenuItem value="displayName">Name</MenuItem>
-            <MenuItem value="owner">Owner</MenuItem>
+            <MenuItem value="pyeObject">Image</MenuItem>
+            <MenuItem value="artistName">Name</MenuItem>
+            <MenuItem value="artist">artist</MenuItem>
           </Select>
         }
         label="Order By:"

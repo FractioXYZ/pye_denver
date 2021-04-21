@@ -18,7 +18,7 @@ const gravatarStyles = theme =>
     image: {
       height: 150,
     },
-    displayName: {
+    artistName: {
       textOverflow: 'ellipsis',
       overflow: 'hidden',
     },
@@ -26,30 +26,30 @@ const gravatarStyles = theme =>
       textOverflow: 'ellipsis',
       overflow: 'hidden',
     },
-    owner: {
+    artist: {
       textOverflow: 'ellipsis',
       overflow: 'hidden',
     },
   })
 
-const Gravatar = ({ classes, id, displayName, imageUrl, owner }) => (
+const Gravatar = ({ classes, id, artistName, pyeObject, artist }) => (
   <Grid item>
     <Card>
       <CardActionArea className={classes.actionArea}>
-        {imageUrl && (
-          <CardMedia className={classes.image} image={imageUrl} title={displayName} />
+        {pyeObject && (
+          <CardMedia className={classes.image} image={pyeObject} title={artistName} />
         )}
         <CardContent>
-          <Typography variant="h6" component="h3" className={classes.displayName}>
-            {displayName || '—'}
+          <Typography variant="h6" component="h3" className={classes.artistName}>
+            {artistName || '—'}
           </Typography>
           <Typography color="textSecondary">ID</Typography>
           <Typography component="p" className={classes.id}>
             {id}
           </Typography>
-          <Typography color="textSecondary">Owner</Typography>
-          <Typography component="p" className={classes.owner}>
-            {owner}
+          <Typography color="textSecondary">artist</Typography>
+          <Typography component="p" className={classes.artist}>
+            {artist}
           </Typography>
         </CardContent>
       </CardActionArea>

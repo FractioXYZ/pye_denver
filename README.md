@@ -71,9 +71,9 @@ the above migration steps.
    {
      gravatars {
        id
-       owner
-       displayName
-       imageUrl
+       artist
+       artistName
+       pyeObject
      }
    }
    ```
